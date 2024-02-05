@@ -7,8 +7,6 @@ import Spinner from 'react-bootstrap/Spinner'
 const API_KEY =
   'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWFhNTMwNDE4N2U1YzAwMTgxNGM2OWUiLCJpYXQiOjE3MDY3OTUzMjksImV4cCI6MTcwODAwNDkyOX0.z776mNx_nkW-OchLZgq0pX1G0Fvqfzy-JBFhRt38tac'
 
-let counter = 30
-
 class SideCommentArea extends Component {
   state = {
     comments: [],
@@ -17,11 +15,11 @@ class SideCommentArea extends Component {
     isLoading: true,
     isError: false,
     error: '',
+    counter: 30,
   }
 
   getComments = (asin) => {
-    this.setState({ isLoading: true })
-    counter = 30
+    this.setState({ isLoading: true, counter: 30 })
     fetch('https://striveschool-api.herokuapp.com/api/comments/' + asin, {
       method: 'GET',
       headers: {
@@ -119,9 +117,8 @@ class SideCommentArea extends Component {
       this.getComments(this.props.bookSelected.asin)
     }
     setInterval(() => {
-      counter--
-      console.log(counter)
-      if (counter === 0) {
+      this.setState({ counter: this.state.counter - 1 })
+      if (this.state.counter === 0) {
         this.getComments(this.props.bookSelected.asin)
       }
     }, 1000)
@@ -181,7 +178,7 @@ class SideCommentArea extends Component {
                 AGGIORNA
               </Button>
               <p className="mt-2 text-secondary">
-                I commenti si aggiorneranno tra {counter} secondi.
+                I commenti si aggiorneranno tra {this.state.counter} secondi.
               </p>
             </div>
             <hr />
