@@ -99,9 +99,16 @@ class AllTheBooks extends Component {
         </Container>
         <Container fluid className="mb-5">
           <Row>
-            <Col xs={8}>
+            <Col xs={6} lg={8} xxl={9}>
               <Container fluid className="px-0">
-                <Row className="g-3 border-end">
+                <Row
+                  xs={1}
+                  md={2}
+                  lg={3}
+                  xl={4}
+                  xxl={5}
+                  className="g-3 border-end"
+                >
                   {this.state.searchText === '' ? (
                     this.state.genreSelected.map((book) => {
                       return (
@@ -132,7 +139,7 @@ class AllTheBooks extends Component {
                 </Row>
               </Container>
             </Col>
-            <Col xs={4}>
+            <Col xs={6} lg={4} xxl={3}>
               {this.state.bookSelected ? (
                 <>
                   <h4 className="mb-4">

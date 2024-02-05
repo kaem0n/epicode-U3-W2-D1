@@ -27,7 +27,7 @@ class SingleBook extends Component {
 
   render() {
     return (
-      <Col xs={6} md={4} lg={3} xxl={2}>
+      <Col>
         <Card
           className={
             this.state.selected && this.props.book === this.props.bookSelected

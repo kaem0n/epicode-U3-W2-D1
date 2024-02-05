@@ -153,7 +153,7 @@ class SideCommentArea extends Component {
                 !this.state.isLoading &&
                 this.state.comments.map((el) => (
                   <div key={el._id}>
-                    <div className="d-flex justify-content-between">
+                    <div className="d-flex justify-content-between align-items-start">
                       <p>
                         <span className="fw-semibold me-2">{el.author}</span>
                         {this.printStars(el.rate)}
