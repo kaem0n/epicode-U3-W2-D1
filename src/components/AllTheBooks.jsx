@@ -151,7 +151,7 @@ class AllTheBooks extends Component {
                   <SideCommentArea bookSelected={this.state.bookSelected} />
                 </>
               ) : (
-                <h3>Nessun libro selezionato</h3>
+                <h3 className="text-center">Nessun libro selezionato</h3>
               )}
             </Col>
           </Row>
